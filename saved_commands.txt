@@ -1,28 +1,41 @@
-  # Step 1: Activate your base conda environment
+  #Activate your base conda environment
   conda activate base
-  # Step 2: Create a conda environment named funtools
+
+  #Create a conda environment named funtools
   conda create -n funtools python=3.11 -y && echo "'funtools' created"
-  #Step 3: Activate the funtools environment
+
+  #Activate the funtools environment
   conda activate funtools
-  # Step 4: Install Figlet using apt-get (or conda if preferred)
+
+  #Install Figlet using apt-get (or conda if preferred)
   sudo apt-get update
   sudo apt-get install figlet -y
-  # Step 5: Run Figlet to display your name
+
+  #Run Figlet to display your name
   figlet "Marvellous Badmus"
-  # Step 6: Install bwa through the bioconda channel
+
+  #Install bwa through the bioconda channel
   conda install -c bioconda bwa -y
-  # Step 7: Install blast through the bioconda channel
+
+  #Install blast through the bioconda channel
   conda install -c bioconda blast -y
-  # Step 8: Install samtools through the bioconda channel
+
+  #Install samtools through the bioconda channel
   conda install -c bioconda samtools -y
-  # Step 9: Install bedtools through the bioconda channel
+
+  #Install bedtools through the bioconda channel
   conda install -c bioconda bedtools -y
-  # Step 10: Install spades.py through the bioconda channel
+
+  #Install spades.py through the bioconda channel
   conda install -c bioconda spades -y
-  # Step 11: Install bcftools through the bioconda channel
+
+  #Install bcftools through the bioconda channel
   conda install -c bioconda bcftools -y
-  # Step 12: Install fastp through the bioconda channel
+
+  #Install fastp through the bioconda channel
   conda install -c bioconda fastp -y
-  # Step 13: Install multiqc through the bioconda channel
+
+  #Install multiqc through the bioconda channel
   conda install -c bioconda multiqc -y
+
   history
