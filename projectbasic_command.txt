@@ -1,40 +1,54 @@
-# STEP 1: Print your name
+#Print your name
 echo "Marvellous Badmus"
-# STEP 2: Create a folder titled with your name
+
+#Create a folder titled with your name
 mkdir Marvellous && echo "Folder 'Marvellous' created"
-# STEP 3: Create biocomputing folder and change into it (one line)
-mkdir biocomputing && cd biocomputing && echo "Now in directory: $(pwd)"
-# STEP 4: Download the three files
+
+#Create biocomputing folder and change into it (one line)
+mkdir biocomputing && cd biocomputing && echo
+
+#Download the three files
 wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.fna
 wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
 wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk -O wildtype_dup.gbk
-# STEP 5: Move the .fna file to the folder titled with your name
-mv wildtype.fna ../Marvellous/ && echo "Moved wildtype.fna to ../Marvellous"
-# STEP 6: Delete the duplicate .gbk file
-rm wildtype_dup.gbk && echo "Deleted duplicate gbk file"
-STEP 7: Confirm if the .fna file is mutant or wild type (stay in biocomputing)
-if grep -iq "tatatata" ../Marvellous/wildtype.fna; then     echo "The file is mutant (tatatata found)";     MUTANT=true; else     echo "The file is wild type (only tata)";     MUTANT=false; fi
-# STEP 8: If mutant, print all matching lines into a new file
-if [ "$MUTANT" = true ]; then     grep -i "tatatata" ../Marvellous/wildtype.fna > mutant_sequences.txt;     echo "Mutant sequences saved to mutant_sequences.txt"; fi
-# STEP 9: Count number of lines (excluding header) in the .gbk file
+
+#Move the .fna file to the folder titled with your name
+mv wildtype.fna ../Marvellous/
+
+#Delete the duplicate .gbk file
+rm wildtype_dup.gbk
+
+#Confirm if the .fna file is mutant or wild type (stay in biocomputing)
+if grep -iq "tatatata" ../Marvellous/wildtype.fna; then
+   echo "The file is mutant (tatatata found)";     MUTANT=true;
+else     
+   echo "The file is wild type (only tata)";       MUTANT=false;
+fi
+
+#If mutant, print all matching lines into a new file
+if [ "$MUTANT" = true ]; then     
+   grep -i "tatatata" ../Marvellous/wildtype.fna > mutant_sequences.txt;
+fi
+
+#Count number of lines (excluding header) in the .gbk file
 tail -n +2 wildtype.gbk | wc -l | awk '{print "Number of lines (excluding header): "$1}'
-# STEP 10: Print the sequence length from LOCUS tag (first line)
+
+#Print the sequence length from LOCUS tag (first line)
 grep "^LOCUS" wildtype.gbk | awk '{print "Sequence length: "$3 " bp"}'
-# STEP 11: Print the source organism from SOURCE tag
+
+#Print the source organism from SOURCE tag
 grep "^SOURCE" wildtype.gbk | awk '{$1=""; print "Source organism:" $0}'
-# STEP 12: List all gene names from the .gbk file
+
+#List all gene names from the .gbk file
 grep "/gene=" wildtype.gbk
-# STEP 13: Clear terminal and print all commands used today
+
+#Clear terminal and print all commands used today
 clear
 history 
 history > project1_commands.txt
-# STEP 14: List files in the two folders
-echo "Files in ../Marvellous:"
+
+#List files in the two folders
 ls -l ~/Marvellous
-echo "Files in biocomputing:"
-ls -l.
-echo "Files in biocomputing:"
 ls -l .
-echo "Files in biocomputing:"
 ls -lh .
 history > projectbasic_command.txt
